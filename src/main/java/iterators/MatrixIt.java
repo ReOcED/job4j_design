@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
  * 5.1.1. Итератор для двухмерного массива int[][] [#9539]
  * Итератор для многомерных массивов.
  */
+
 public class MatrixIt implements Iterator<Integer> {
 
     private final int[][] data;
