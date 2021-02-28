@@ -19,7 +19,7 @@ public final class MemStore<T extends Base> implements Store<T> {
 
     @Override
     public boolean replace(String id, T model) {
-        int index = mem.indexOf(model);
+        int index = mem.indexOf(this.findById(id));
         if (index >= 0) {
             mem.set(index, model);
         }
