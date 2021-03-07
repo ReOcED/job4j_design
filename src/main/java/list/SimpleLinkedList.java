@@ -67,14 +67,28 @@ public class SimpleLinkedList<T> implements Iterable<T> {
         return false;
     }
 
-    public T removeFirst(){
-        Objects.checkIndex(0, this.index);
+    public T removeFirst() {
+        checkIfEmpty();
         return removeNode(first);
     }
 
     public T removeLast() {
-        Objects.checkIndex(0, this.index);
+        checkIfEmpty();
         return removeNode(last);
+    }
+
+    public T getFirst() {
+        checkIfEmpty();
+        return first.getData();
+    }
+
+    public T getLast() {
+        checkIfEmpty();
+        return last.getData();
+    }
+
+    public int size() {
+        return this.index;
     }
 
 
@@ -98,6 +112,12 @@ public class SimpleLinkedList<T> implements Iterable<T> {
         this.index--;
         this.modCount++;
         return toRemove.getData();
+    }
+
+    private void checkIfEmpty() {
+        if (this.size() == 0) {
+            throw new NoSuchElementException();
+        }
     }
 
     @Override

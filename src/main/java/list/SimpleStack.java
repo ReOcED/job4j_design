@@ -14,4 +14,9 @@ public class SimpleStack<T> {
     public void push(T value) {
         data.add(value);
     }
+
+    public boolean empty() {
+        return data.size() == 0;
+    }
+
 }
