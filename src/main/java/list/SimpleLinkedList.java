@@ -67,6 +67,16 @@ public class SimpleLinkedList<T> implements Iterable<T> {
         return false;
     }
 
+    public T removeFirst(){
+        Objects.checkIndex(0, this.index);
+        return removeNode(first);
+    }
+
+    public T removeLast() {
+        Objects.checkIndex(0, this.index);
+        return removeNode(last);
+    }
+
 
     private Node<T> getIndexNode(int index) {
         Node<T> resultNode = first;
@@ -79,6 +89,9 @@ public class SimpleLinkedList<T> implements Iterable<T> {
     private T removeNode(Node<T> toRemove) {
         if (toRemove.equals(first)) {
             first = first.getNext();
+        }
+        if (toRemove.equals(last)) {
+            last = last.getPrev();
         }
         toRemove.getNext().setPrev(toRemove.getPrev());
         toRemove.getPrev().setNext(toRemove.getNext());
@@ -103,7 +116,7 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return  new Iterator<T>() {
+        return  new Iterator<>() {
             private Node<T> current = first;
             private int expectedModCount = modCount;
             private int pointer = 0;
