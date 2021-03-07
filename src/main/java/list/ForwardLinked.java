@@ -3,6 +3,10 @@ package list;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * 6. Перевернуть связанный список [#161]
+ * @param <T>
+ */
 public class ForwardLinked<T> implements Iterable<T> {
     private Node<T> head;
 
