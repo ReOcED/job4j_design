@@ -3,7 +3,11 @@ package list;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ForwardLinked<T> implements Iterable<T> {
+/**
+ * 3. Удалить head в односвязном списке. [#51424]
+ * @param <T>
+ */
+public class ForwardLinked_v1<T> implements Iterable<T> {
     private Node<T> head;
 
     public void add(T value) {
@@ -19,16 +23,13 @@ public class ForwardLinked<T> implements Iterable<T> {
         tail.next = node;
     }
 
-    public void revert() {
-        head = revertRec(null, head, head.next);
-    }
-
-    private Node<T> revertRec(Node<T> prev, Node<T> curr, Node<T> next) {
-        curr.next = prev;
-        if (next == null) {
-            return curr;
+    public T deleteFirst() {
+        if (head == null) {
+            throw new NoSuchElementException();
         }
-        return revertRec(curr, next, next.next);
+        T result = head.value;
+        head = head.next;
+        return result;
     }
 
     @Override
