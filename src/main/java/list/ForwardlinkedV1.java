@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  * 3. Удалить head в односвязном списке. [#51424]
  * @param <T>
  */
-public class ForwardLinked_v1<T> implements Iterable<T> {
+public class ForwardlinkedV1<T> implements Iterable<T> {
     private Node<T> head;
 
     public void add(T value) {
