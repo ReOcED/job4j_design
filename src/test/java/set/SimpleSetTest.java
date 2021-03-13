@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ConcurrentModificationException;
 import java.util.NoSuchElementException;
 
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class SimpleSetTest {
@@ -59,6 +60,22 @@ public class SimpleSetTest {
         var it = ss.iterator();
         ss.add("");
         it.next();
+    }
+
+    @Test
+    public void getSize() {
+        assertThat(ss.size(), is(0));
+        ss.add("1");
+        ss.add("1");
+        assertThat(ss.size(), is(1));
+        ss.add("2");
+        ss.add("3");
+        ss.add("4");
+        ss.add("5");
+        ss.add("6");
+        ss.add("7");
+        ss.add("8");
+        assertThat(ss.size(), is(8));
     }
 
 }

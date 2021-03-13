@@ -138,42 +138,6 @@ public class SimpleSet<T> implements Iterable<T> {
 
 
 
-    public static void main(String[] args) {
-
-        var hs = new HashSet<>();
-
-        SimpleSet<Integer> ss1 = new SimpleSet<>();
-        ss1.add(0);
-        System.out.println(ss1.contains(null));
-
-/*
-        SimpleSet<String> ss = new SimpleSet<>();
-        System.out.println(ss.contains(null));
-        System.out.println(ss.add(null));
-        System.out.println(ss.contains(null));
-        System.out.println(ss.add(null));
-        ss.add("1qwe1");
-        ss.add("2qwe");
-        ss.add("2qwe");
-        ss.add("2qwe");
-        ss.add("3dsddd");
-        ss.add("41!23");
-        ss.add("5dsadsdsвыв");
-        ss.add(String.valueOf(6));
-        ss.add(String.valueOf(7));
-        ss.remove(null);
-        var it = ss.iterator();
-        System.out.println("=========");
-
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-        System.out.println("==========");
-        System.out.println(ss.contains(null));
-        System.out.println(ss.contains("41!23"));
-        System.out.println(ss.contains("012"));*/
-
-    }
 
     @Override
     public Iterator<T> iterator() {
@@ -255,6 +219,7 @@ public class SimpleSet<T> implements Iterable<T> {
         }
 
         @Override
+        @SuppressWarnings("unchecked")
         public boolean equals(Object o) {
             if (this == o) {
                 return true;
